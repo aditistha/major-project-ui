@@ -1,0 +1,43 @@
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Routes,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
+import Home from "./pages";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
+import User from "./pages/Admin/user";
+import Message from "./pages/Admin/message";
+
+function App() {
+  const location = useLocation();
+  console.log("navigate", location.pathname.includes("/Admin"));
+  return (
+    <div className="App">
+      {!location.pathname.includes("/admin") && (
+        <Navbar isAuth={false} logoData={undefined} />
+      )}
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+
+        <Route path="/admin" element={<Admin />}>
+          <Route path="messages" element={<Message />} />
+          <Route path="user" element={<User />} />
+          
+        </Route>
+      </Routes>
+      {(!location.pathname.includes("/admin")) && <Footer />}
+    </div>
+  );
+}
+
+export default App;

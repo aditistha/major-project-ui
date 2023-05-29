@@ -13,7 +13,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-import User from "./pages/Admin/User";
+import BasicTable from "./pages/Admin/User";
 import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/admin" element={<AdminDashboard />}>
-          <Route path="/admin/User" element={<User />} />
+          <Route path="/admin/User" element={<BasicTable/>} />
           
         </Route>
       </Routes>

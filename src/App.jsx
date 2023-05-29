@@ -13,8 +13,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-import BasicTable from "./pages/Admin/User";
-import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
+import User from "./pages/Admin/User";
 
 function App() {
   const location = useLocation();
@@ -28,9 +27,9 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-
-        <Route path="/admin" element={<AdminDashboard />}>
-          <Route path="/admin/User" element={<BasicTable/>} />
+        <Route path="/admin" element={<Admin />}>
+       
+          <Route path="User" element={<User />} />
           
         </Route>
       </Routes>

@@ -9,6 +9,7 @@ export const SidebarContainer = styled.div`
     padding-top: 2rem;
     transition: all 300ms ease;
     overflow-y: scroll;
+    max-width: 300px;
 
 }
 

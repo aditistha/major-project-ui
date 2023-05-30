@@ -1,19 +1,18 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import AdminDashboard from '../../components/Admin/AdminDashboard/AdminDashboard';
 
 export default function index() {
     return (
         <div>
-          <AdminDashboard/>
-          
-          <h1>Admin sdhja</h1>
-            
-    
-          {/* This element will render either <AdminMessages> when the URL is
+            <h1>Admin sdhja</h1>
+            <AdminDashboard/>
+
+
+            {/* This element will render either <AdminMessages> when the URL is
               "/messages", <AdminTasks> at "/tasks", or null if it is "/"
           */}
-          <Outlet />
+            <Outlet/>
         </div>
-      );
+    );
 }

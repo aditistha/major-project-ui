@@ -2,12 +2,13 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Routes,
-  useNavigate,
-  useLocation,
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Routes,
+    useNavigate,
+    useLocation, createBrowserRouter,
+    RouterProvider
 } from "react-router-dom";
 import Home from "./pages";
 import Navbar from "./components/Navbar";
@@ -16,26 +17,29 @@ import Admin from "./pages/Admin";
 import User from "./pages/Admin/User";
 
 function App() {
-  const location = useLocation();
-  console.log("navigate", location.pathname.includes("/Admin"));
-  return (
-    <div className="App">
-      {!location.pathname.includes("/admin") && (
-        <Navbar isAuth={false} logoData={undefined} />
-      )}
-      <Routes>
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Home/>,
+            errorElement: <div><h2>Error Section</h2></div>,
+        },
+        {
+            path: "admin/*",
+            element: <Admin/>,
+            errorElement: <div><h2>Error Section</h2></div>,
+        },
+        {
+            path: "*",
+            element: <Home/>
+        }
+    ]);
 
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/admin" element={<Admin />}>
-       
-          <Route path="User" element={<User />} />
-          
-        </Route>
-      </Routes>
-      {(!location.pathname.includes("/admin")) && <Footer />}
-    </div>
-  );
+    return (
+        <div className="App">
+            <RouterProvider router={router}>
+            </RouterProvider>
+        </div>
+    );
 }
 
 export default App;

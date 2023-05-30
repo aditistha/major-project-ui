@@ -13,11 +13,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-<<<<<<< HEAD
 import User from "./pages/Admin/user";
-=======
-import User from "./pages/Admin/User";
->>>>>>> 8c3a24afa2086645f8c7c8ad2d050ac7863b499a
 
 function App() {
   const location = useLocation();

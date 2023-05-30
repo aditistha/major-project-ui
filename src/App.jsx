@@ -13,7 +13,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-import User from "./pages/Admin/User";
+import User from "./pages/Admin/user";
 
 function App() {
   const location = useLocation();

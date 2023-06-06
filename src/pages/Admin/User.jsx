@@ -12,27 +12,6 @@ import {createUser, getAllUsers} from "../../api/userAction";
 import {useEffect, useState} from "react";
 
 
-//TODO for creating User use below function inside functional component
-function createData(payload) {
-//     createUser(payload).then(
-//         success => {
-//             if(success.data) {
-//                 console.log(success.data);
-//             }else{
-//                 console.log("Empty Error Response")
-//             }
-//         },
-//         error => {
-//             if(error.response) {
-//                 //Backend Error message
-//                 console.log(error.response)
-//             }else{
-//                 //Server Not working Error
-//             }
-//         }
-//     )
-// }
-
 const rows = [
     {Firstname:"Ram",Lastname:"stha", Email:"example@gmail.com", Password:"fsghshsdc", Address: "baneshwor", Phone: "9818035087", Gender:"male", Jobtitle:"cashier", Date: "2020/02/22", Salary: "1000", Status: "Full-time"},
 ]
@@ -133,3 +112,24 @@ export default function BasicTable() {
         </>
     );
 }
+
+//TODO for creating User use below function inside functional component
+// function createData(payload) {
+//     createUser(payload).then(
+//         success => {
+//             if(success.data) {
+//                 console.log(success.data);
+//             }else{
+//                 console.log("Empty Error Response")
+//             }
+//         },
+//         error => {
+//             if(error.response) {
+//                 //Backend Error message
+//                 console.log(error.response)
+//             }else{
+//                 //Server Not working Error
+//             }
+//         }
+//     )
+// }

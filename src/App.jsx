@@ -14,7 +14,7 @@ import Home from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-import User from "./pages/Admin/user";
+import User from "./pages/Admin/User";
 
 function App() {
     const router = createBrowserRouter([

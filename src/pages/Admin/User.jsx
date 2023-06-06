@@ -8,42 +8,70 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import {createUser} from "../../api/userAction";
+import {createUser, getAllUsers} from "../../api/userAction";
+import {useEffect, useState} from "react";
 
-function createData(Firstname, Lastname, Email, Password, Address, Phone, Gender, Jobtitle, Date, Salary, Status, Action) {
 
-    let payload = { Firstname, Lastname, Email, Password, Address, Phone, Gender, Jobtitle, Date, Salary, Status, Action };
-    createUser(payload).then(
-        success => {
-            if(success.data) {
-                console.log(success.data);
-            }else{
-                console.log("Empty Error Response")
-            }
-        },
-        error => {
-            if(error.response) {
-                //Backend Error message
-                console.log(error.response)
-            }else{
-                //Server Not working Error
-            }
-        }
-    )
-}
+//TODO for creating User use below function inside functional component
+function createData(payload) {
+//     createUser(payload).then(
+//         success => {
+//             if(success.data) {
+//                 console.log(success.data);
+//             }else{
+//                 console.log("Empty Error Response")
+//             }
+//         },
+//         error => {
+//             if(error.response) {
+//                 //Backend Error message
+//                 console.log(error.response)
+//             }else{
+//                 //Server Not working Error
+//             }
+//         }
+//     )
+// }
 
 const rows = [
-    createData("Ram", "stha", "example@gmail.com", "fsghshsdc", "baneshwor", "9818035087", "male", "cashier", "2020/02/22", "1000", "Full-time"),
+    {Firstname:"Ram",Lastname:"stha", Email:"example@gmail.com", Password:"fsghshsdc", Address: "baneshwor", Phone: "9818035087", Gender:"male", Jobtitle:"cashier", Date: "2020/02/22", Salary: "1000", Status: "Full-time"},
 ]
 
 
 export default function BasicTable() {
+    const [data, setData] = useState([])
 
     const navigate = useNavigate();
 
     const handleRegisterClick = () => {
         navigate("/RegisterDB");
     };
+
+    useEffect(() => {
+        getAllUsers().then(
+            success => {
+                if(success.data) {
+                    console.log(success.data)
+                    //TODO uncomment below line if api gives success message
+                    // setData(success.data)
+                }else{
+                    console.log("Empty Error Response")
+                }
+            },
+            error => {
+                if(error.response) {
+                    //Backend Error message
+                    console.log(error.response)
+                }else{
+                    //Server Not working Error
+                    console.log("Servier not working")
+                }
+            }
+        )
+        //TODO remove below line if api is working
+        setData(rows);
+
+    }, [])
 
     return (
         <>
@@ -74,9 +102,9 @@ export default function BasicTable() {
                             </TableRow>
                         </TableHead>
                         <TableBody style={{ color: "white" }}>
-                            {rows.map((row) => (
+                            {data.map((row, idx) => (
                                 <TableRow
-                                    key={row.name}
+                                    key={idx}
                                 >
                                     <TableCell component="th" scope="row">
                                         {row.Firstname}

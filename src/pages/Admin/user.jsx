@@ -8,9 +8,28 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
+import {createUser} from "../../api/userAction";
 
 function createData(Firstname, Lastname, Email, Password, Address, Phone, Gender, Jobtitle, Date, Salary, Status, Action) {
-  return { Firstname, Lastname, Email, Password, Address, Phone, Gender, Jobtitle, Date, Salary, Status, Action };
+
+  let payload = { Firstname, Lastname, Email, Password, Address, Phone, Gender, Jobtitle, Date, Salary, Status, Action };
+  createUser(payload).then(
+      success => {
+        if(success.data) {
+          console.log(success.data);
+        }else{
+          console.log("Empty Error Response")
+        }
+      },
+      error => {
+        if(error.response) {
+          //Backend Error message
+          console.log(error.response)
+        }else{
+          //Server Not working Error
+        }
+      }
+  )
 }
 
 const rows = [

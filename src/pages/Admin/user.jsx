@@ -46,62 +46,62 @@ export default function BasicTable() {
   };
 
   return (
-    <>
-      <div className="Table">
-        <h3>Employees</h3>
-        <div className="registerbtn mb-5 mt-5">
-          <Button variant="contained" color="primary" onClick={handleRegisterClick}>Register Employee</Button>
-        </div>
-        <TableContainer
-          component={Paper}
-          style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
-        >
-          <Table aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>FirstName</TableCell>
-                <TableCell align="left" >LastName</TableCell>
-                <TableCell align="left" >Email</TableCell>
-                <TableCell align="left" >Password</TableCell>
-                <TableCell align="left" >Address</TableCell>
-                <TableCell align="left" >Phone</TableCell>
-                <TableCell align="left" >Gender</TableCell>
-                <TableCell align="left" >Job Title</TableCell>
-                <TableCell align="left" >Date of hire</TableCell>
-                <TableCell align="left" >Salary</TableCell>
-                <TableCell align="left" >Status</TableCell>
-                <TableCell align="left" >Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody style={{ color: "white" }}>
-              {rows.map((row) => (
-                <TableRow
-                  key={row.name}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.Firstname}
-                  </TableCell>
-                  <TableCell align="left" className="table-cell">{row.Lastname}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Email}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Password}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Address}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Phone}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Gender}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Jobtitle}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Date}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Salary}</TableCell>
-                  <TableCell align="left" className="table-cell" >{row.Status}</TableCell>
-                  <TableCell align="left" className="Details">
-                    <Button className=" bg-success" style={{ border: "none", color: "white", height: "25px" }}>Edit</Button>
-                    <Button style={{ marginTop: "5px", backgroundColor: "#CD5C5C", border: "none", color: "white", height: "25px" }}>Delete</Button>
-                  </TableCell>
-
+      <>
+        <div className="Table">
+          <h3>Employees</h3>
+          <div className="registerbtn mb-5 mt-5">
+            <Button variant="contained" color="primary" onClick={handleRegisterClick}>Register Employee</Button>
+          </div>
+          <TableContainer
+              component={Paper}
+              style={{ boxShadow: "0px 13px 20px 0px #80808029" }}
+          >
+            <Table aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>FirstName</TableCell>
+                  <TableCell align="left" >LastName</TableCell>
+                  <TableCell align="left" >Email</TableCell>
+                  <TableCell align="left" >Password</TableCell>
+                  <TableCell align="left" >Address</TableCell>
+                  <TableCell align="left" >Phone</TableCell>
+                  <TableCell align="left" >Gender</TableCell>
+                  <TableCell align="left" >Job Title</TableCell>
+                  <TableCell align="left" >Date of hire</TableCell>
+                  <TableCell align="left" >Salary</TableCell>
+                  <TableCell align="left" >Status</TableCell>
+                  <TableCell align="left" >Action</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
-    </>
+              </TableHead>
+              <TableBody style={{ color: "white" }}>
+                {rows.map((row) => (
+                    <TableRow
+                        key={row.name}
+                    >
+                      <TableCell component="th" scope="row">
+                        {row.Firstname}
+                      </TableCell>
+                      <TableCell align="left" className="table-cell">{row.Lastname}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Email}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Password}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Address}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Phone}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Gender}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Jobtitle}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Date}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Salary}</TableCell>
+                      <TableCell align="left" className="table-cell" >{row.Status}</TableCell>
+                      <TableCell align="left" className="Details">
+                        <Button className=" bg-success" style={{ border: "none", color: "white", height: "25px" }}>Edit</Button>
+                        <Button style={{ marginTop: "5px", backgroundColor: "#CD5C5C", border: "none", color: "white", height: "25px" }}>Delete</Button>
+                      </TableCell>
+
+                    </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      </>
   );
 }

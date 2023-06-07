@@ -30,9 +30,8 @@ export default function BasicTable() {
         getAllUsers().then(
             success => {
                 if(success.data) {
-                    console.log(success.data)
-                    //TODO uncomment below line if api gives success message
-                    // setData(success.data)
+                    console.log(success.data.data)
+                    setData(success.data.data)
                 }else{
                     console.log("Empty Error Response")
                 }
@@ -47,8 +46,6 @@ export default function BasicTable() {
                 }
             }
         )
-        //TODO remove below line if api is working
-        setData(data);
 
     }, [])
 

@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import {createUser, getAllUsers} from "../../api/userAction";
+import {getAllUsers} from "../../api/userAction";
 import {useEffect, useState} from "react";
 
 
@@ -43,12 +43,12 @@ export default function BasicTable() {
                     console.log(error.response)
                 }else{
                     //Server Not working Error
-                    console.log("Servier not working")
+                    console.log("Server not working")
                 }
             }
         )
         //TODO remove below line if api is working
-        setData(rows);
+        setData(data);
 
     }, [])
 
@@ -66,13 +66,12 @@ export default function BasicTable() {
                     <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>FirstName</TableCell>
+                                <TableCell>FirstName </TableCell>
                                 <TableCell align="left" >LastName</TableCell>
                                 <TableCell align="left" >Email</TableCell>
-                                <TableCell align="left" >Password</TableCell>
+                                <TableCell align="left" >Gender</TableCell>
                                 <TableCell align="left" >Address</TableCell>
                                 <TableCell align="left" >Phone</TableCell>
-                                <TableCell align="left" >Gender</TableCell>
                                 <TableCell align="left" >Job Title</TableCell>
                                 <TableCell align="left" >Date of hire</TableCell>
                                 <TableCell align="left" >Salary</TableCell>
@@ -81,23 +80,18 @@ export default function BasicTable() {
                             </TableRow>
                         </TableHead>
                         <TableBody style={{ color: "white" }}>
-                            {data.map((row, idx) => (
-                                <TableRow
-                                    key={idx}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        {row.Firstname}
-                                    </TableCell>
-                                    <TableCell align="left" className="table-cell">{row.Lastname}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Email}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Password}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Address}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Phone}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Gender}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Jobtitle}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Date}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Salary}</TableCell>
-                                    <TableCell align="left" className="table-cell" >{row.Status}</TableCell>
+                            {data.map((dataItem,employee_id) => (
+                                <TableRow key={employee_id}>
+                                    <TableCell component="th" scope="row">{dataItem.firstname}</TableCell>
+                                    <TableCell align="left" className="table-cell">{dataItem.lastname}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.email}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.gender}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.address}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.phone}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.job_title}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.hire_date}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.salary_information}</TableCell>
+                                    <TableCell align="left" className="table-cell" >{dataItem.employee_status}</TableCell>
                                     <TableCell align="left" className="Details">
                                         <Button className=" bg-success" style={{ border: "none", color: "white", height: "25px" }}>Edit</Button>
                                         <Button style={{ marginTop: "5px", backgroundColor: "#CD5C5C", border: "none", color: "white", height: "25px" }}>Delete</Button>
